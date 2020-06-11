@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  background-image: linear-gradient(to bottom, rgba(185, 41, 204, 0.377) 0%, rgba(94, 3, 117, 0.945) 100%), url(/pink-jellyfish-lot-2832767.a1506555.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover; }
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .container .title h1 {
+    font-size: 5rem;
+    background: linear-gradient(to left, #f8aeff, #f8d5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
+  .container .clock {
+    width: 30rem;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 20px solid white;
+    box-shadow: 1px 1px 10px #000;
+    border-radius: 50%;
+    position: relative;
+    padding: 2rem; }
+    .container .clock .ball {
+      width: 50px;
+      height: 50px;
+      background-color: #540264;
+      position: absolute;
+      z-index: 999;
+      border-radius: 50%; }
+    .container .clock .clock-face {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform: translate(-92px, 0px);
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .container .clock .clock-face .hand {
+        width: 50%;
+        height: 6px;
+        background: black;
+        position: absolute;
+        top: 50%;
+        transform-origin: 100%;
+        transform: rotate(90deg);
+        transition: all 0.05s;
+        transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1); }
+      .container .clock .clock-face .hour-hand {
+        height: 25px;
+        border-radius: 20px;
+        background-color: #f006e4; }
+      .container .clock .clock-face .min-hand {
+        height: 8px;
+        border-radius: 20px;
+        background-color: #fcb4ff; }
+      .container .clock .clock-face .second-hand {
+        height: 5px;
+        border-radius: 20px;
+        background-color: #a1c5e7; }
+
+
+/*# sourceMappingURL=/app.c328ef1a.css.map */
