@@ -1,33 +1,100 @@
-let saldo = localStorage.getItem("saldo")
-localStorage.setItem("saldo", saldo)
+let saldoTotal = document.querySelector('#salto_total')
+let totalGanhos = document.querySelector('#total-ganhos')
+let totalDespesas = document.querySelector('#total-despesas')
 
-const getSaldo = () => {
-  var text = document.querySelector('.valor')
-  text.innerHTML = `R$ ${valorSaldo}`
+let despesas = document.querySelector('#despesas')
+let array1 = []
+let array2 = []
 
-  if(String(valorSaldo) < 0) {
-      text.style.color = 'red'
+function getGanhos(e) {
+let ganhos = document.querySelector('#ganhos')
+  e.preventDefault()
+  if(ganhos.value == 0 || ganhos.value == null) {
+    alert('Campo Vazio, insira um valor')
   }else{
-    text.style.color = 'green'
+      let num = array1
+      array1.push(ganhos.value)
+
+    const list = document.querySelector('#list2')
+    const text2 = document.createElement("li")
+    text2.textContent = `R$ ${ganhos.value}`
+    list.appendChild(text2)
+
+    var valor = 0
+    for(var i = 0; i < num.length;i++){
+        valor = parseInt(valor) + parseInt(num[i])
+        totalGanhos.innerHTML = `Ganhos R$ ${valor}`
+    }
   }
 }
 
-function updatesaldo(type){
-  if(type === 'dimunuir'){
-    var valor = document.querySelector('#despesa').value
-    valor === "" && valor === null ?  saldo = 0 : true
-    valorSaldo = parseInt(valorSaldo) - parseInt(valor) 
-    getSaldo()
-   
-  }else if(type === 'adicionar') {
-    var valor = document.querySelector('#ganho').value
-    valor === "" && valor === null ?  saldo = 0 : true
-    valorSaldo = parseInt(valorSaldo) + parseInt(valor) 
-    getSaldo()
+function getDespesas(e) {
+    e.preventDefault()
+  let despesas = document.querySelector('#despesas')
+  if(despesas.value == 0 || despesas.value == null) {
+    alert('Campo Vazio, insira um valor')
+  }else{
+    let num2 = array2
+    array2.push(despesas.value)
+
+    const list = document.querySelector('#list')
+    const text = document.createElement("li")
+    text.textContent = `R$ ${despesas.value}`
+    list.appendChild(text)
+
+    var valor2 = 0
+    for(var i = 0; i < num2.length;i++){
+        valor2 = parseInt(valor2) + parseInt(num2[i])
+        totalDespesas.innerHTML = `Gastos R$ ${valor2}`
+    }
   }
 }
 
-updatesaldo(0)
+function getSaldoTotal(valor, valor2) {
+
+    
+    let saldoTotal = document.querySelector('#salto_total')
+    
+    saldoTotal.innerHTML = `R$ ${valor}`
+    var total = valor + valor2
+    console.log(total)
+  }
+  getSaldoTotal()
+
+
+
+// function testaCampo() {
+//   let ganhos = document.querySelector('#ganhos')
+//   if(ganhos == 0 || ganhos == null) {
+//     console.log('true')
+//   }else{
+//     console.log(false)
+//   }
+//   somaValores()
+// }
+
+
+
+
+
+
+// function verificarSaldo(){
+//   if(String(saldoTotal) > 0){
+//     saldoTotal.style.color = "green"
+//   }else{
+//     saldoTotal.style.color = "red"
+//   }
+// }
+
+// document.querySelector('#add').addEventListener('click', somaValores)
+document.querySelector('#bt_ganhos').addEventListener('click', getGanhos)
+document.querySelector('#bt_despesas').addEventListener('click', getDespesas)
+
+
+
+
+
+
 
 
 

@@ -10,6 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     
 }
 
@@ -17,10 +18,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
+    width: 80%;
 }
 
-.content-despesas 
-.content-ganhos, h1 {
+.saldo-total {
+    background-color: #ccc;
+    margin-bottom: 40px;
+    width: 80%;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.content-despesas h1, 
+.content-ganhos h1 {
     margin-bottom: 40px;
 }
 
@@ -58,4 +68,14 @@
     background-color: aquamarine;
     padding: 20px;
     border-radius: 8px;
+}
+.list .list2, li {
+    padding: 5px;
+    list-style: none;
+    border-bottom: 1px solid #cccccc;
+    margin: 10px 0;
+}
+
+.list .list2, li:last-child {
+    border: none;
 }
