@@ -12,61 +12,67 @@ let ganhos = document.querySelector('#ganhos')
   if(ganhos.value == 0 || ganhos.value == null) {
     alert('Campo Vazio, insira um valor')
   }else{
-      let num = array1
-      array1.push(ganhos.value)
-
+    array1.push(ganhos.value)
     const list = document.querySelector('#list2')
     const text2 = document.createElement("li")
     text2.textContent = `R$ ${ganhos.value}`
     list.appendChild(text2)
+  }
+  updateSaldo()
+}
+
+function updateSaldo(numero, num) {
+numero = ganhos.value
+num = array1
 
     var valor = 0
     for(var i = 0; i < num.length;i++){
         valor = parseInt(valor) + parseInt(num[i])
-        totalGanhos.innerHTML = `Ganhos R$ ${valor}`
+        saldoTotal.innerHTML = `Saldo Total R$ ${valor}`
     }
-  }
 }
 
-function getDespesas(e) {
-    e.preventDefault()
-  let despesas = document.querySelector('#despesas')
-  if(despesas.value == 0 || despesas.value == null) {
-    alert('Campo Vazio, insira um valor')
-  }else{
-    let num2 = array2
-    array2.push(despesas.value)
+updateSaldo()
 
-    const list = document.querySelector('#list')
-    const text = document.createElement("li")
-    text.textContent = `R$ ${despesas.value}`
-    list.appendChild(text)
+// function getDespesas(e) {
+//     e.preventDefault()
+//   let despesas = document.querySelector('#despesas')
+//   if(despesas.value == 0 || despesas.value == null) {
+//     alert('Campo Vazio, insira um valor')
+//   }else{
+//     let num2 = array2
+//     array2.push(despesas.value)
 
-    var valor2 = 0
-    for(var i = 0; i < num2.length;i++){
-        valor2 = parseInt(valor2) + parseInt(num2[i])
-        totalDespesas.innerHTML = `Gastos R$ ${valor2}`
-    }
-  }
-}
+//     const list = document.querySelector('#list')
+//     const text = document.createElement("li")
+//     text.textContent = `R$ ${despesas.value}`
+//     list.appendChild(text)
 
-function verificarSaldo(texto) {
-    if(String(saldo).indexOf('-') != -1) {
-        texto.style.color = "red"
-    }else if(String(saldo) > 0) {
-        texto.style.color = "green"
-    }
-    getSaldoTotal()
-}
+//     var valor2 = 0
+//     for(var i = 0; i < num2.length;i++){
+//         valor2 = parseInt(valor2) + parseInt(num2[i])
+//         totalDespesas.innerHTML = `Gastos R$ ${valor2}`
+//     }
+//   }
+// }
 
-function getSaldoTotal() {
-    let saldoTotal = document.querySelector('#salto_total')
-    let saldo = 10
-    saldoTotal.innerHTML = `R$ ${saldo}`
+// function verificarSaldo(texto) {
+//     if(String(saldo).indexOf('-') != -1) {
+//         texto.style.color = "red"
+//     }else if(String(saldo) > 0) {
+//         texto.style.color = "green"
+//     }
+//     getSaldoTotal()
+// }
+
+// function getSaldoTotal() {
+//     let saldoTotal = document.querySelector('#salto_total')
+//     let saldo = 10
+//     saldoTotal.innerHTML = `R$ ${saldo}`
     
-verificarSaldo()
-  }
-  getSaldoTotal()
+// verificarSaldo()
+//   }
+//   getSaldoTotal()
 
 
 
@@ -95,7 +101,7 @@ verificarSaldo()
 
 // document.querySelector('#add').addEventListener('click', somaValores)
 document.querySelector('#bt_ganhos').addEventListener('click', getGanhos)
-document.querySelector('#bt_despesas').addEventListener('click', getDespesas)
+// document.querySelector('#bt_despesas').addEventListener('click', getDespesas)
 
 
 
