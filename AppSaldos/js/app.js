@@ -50,14 +50,21 @@ function getDespesas(e) {
   }
 }
 
-function getSaldoTotal(valor, valor2) {
+function verificarSaldo(texto) {
+    if(String(saldo).indexOf('-') != -1) {
+        texto.style.color = "red"
+    }else if(String(saldo) > 0) {
+        texto.style.color = "green"
+    }
+    getSaldoTotal()
+}
 
-    
+function getSaldoTotal() {
     let saldoTotal = document.querySelector('#salto_total')
+    let saldo = 10
+    saldoTotal.innerHTML = `R$ ${saldo}`
     
-    saldoTotal.innerHTML = `R$ ${valor}`
-    var total = valor + valor2
-    console.log(total)
+verificarSaldo()
   }
   getSaldoTotal()
 
