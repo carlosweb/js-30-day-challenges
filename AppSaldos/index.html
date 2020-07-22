@@ -13,21 +13,21 @@
     <div class="container">
 
         <div class="saldo-total">
-            <h1 id="salto_total">R$ 0</h1>
+            <h1 id="saldo_total">R$ 0</h1>
         </div>
         <div class="content">
           
                 <div class="content-despesas">
                     <h1>Painel de Despesas</h1>
                     <input type="number" id="despesas" placeholder="Adicionar Despesa">
-                    <button id="bt_despesas">Adicionar</button>
+                    <button id="bt_despesas" onclick="updateSaldo('diminuir')">Adicionar</button>
                     <ul id="list"></ul>
                     <div id="total-despesas"></div>
                 </div>
                 <div class="content-ganhos">
                     <h1>Painel de Ganhos</h1>
                     <input type="number" id="ganhos" placeholder="Adicionar Receita">
-                    <button id="bt_ganhos"> Adicionar </button>
+                    <button id="bt_ganhos" onclick="updateSaldo('aumentar')"> Adicionar </button>
                     <ul id="list2"></ul>
                     <div id="total-ganhos"></div>
                 </div>

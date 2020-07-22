@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: #1e1e1e; color: #f2f2f2; font-family: 'Bungee', cursive; }
+
+.container { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+.container .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.container .cards .card { display: flex; flex-direction: column; align-items: center; justify-content: space-between; background: #141414; padding: 40px 20px; border-radius: 8px; transition: transform 500ms; }
+.container .cards .card:hover { transform: scale(1.1); }
+.container .cards .card:hover .bt-like { animation-name: pulse 4s; transform: scale(1.1); }
+@keyframes pulse { 0% { transform: scale(1.1); }
+  25% { transform: scale(1.2); }
+  75% { transform: scale(1.1); }
+  100% { transform: scale(1.2); } }
+.container .cards .card h2 { margin-bottom: 2rem; }
+.container .cards .card .bt-like { border: none; background: none; color: #c80000; cursor: pointer; margin-bottom: 2rem; }
+.container .cards .card .counter { font-size: 1.8rem; }
+
+/*# sourceMappingURL=style.css.map */

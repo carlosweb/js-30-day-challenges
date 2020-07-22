@@ -1,80 +1,126 @@
-let saldoTotal = document.querySelector('#salto_total')
+let saldoTotal = document.querySelector('#saldo_total')
 let totalGanhos = document.querySelector('#total-ganhos')
-let totalDespesas = document.querySelector('#total-despesas')
 
-let despesas = document.querySelector('#despesas')
-let array1 = []
-let array2 = []
+function getSaldo() {
+  var values = localStorage.getItem("saldo")
+  localStorage.setItem("saldo", valorSaldo)
+  saldoTotal.innerHTML = values 
+  verificaSaldo()
+}
 
-function getGanhos(e) {
-let ganhos = document.querySelector('#ganhos')
-  e.preventDefault()
-  if(ganhos.value == 0 || ganhos.value == null) {
-    alert('Campo Vazio, insira um valor')
+valorSaldo = 0
+
+
+
+function verificaSaldo() {
+  if(String(valorSaldo).indexOf("-") != -1) {
+    saldoTotal.style.color = "red"
   }else{
-      let num = array1
-      array1.push(ganhos.value)
-
-    const list = document.querySelector('#list2')
-    const text2 = document.createElement("li")
-    text2.textContent = `R$ ${ganhos.value}`
-    list.appendChild(text2)
-
-    let valor = 0
-    for(var i = 0; i < num.length;i++){
-        valor = parseInt(valor) + parseInt(num[i])
-        totalGanhos.innerHTML = `Ganhos R$ ${valor}`
-    }
+    saldoTotal.style.color = "green"
   }
-  updateSaldo()
+}
+
+function updateSaldo(type) {
+  if (type === "diminuir") {
+    let valor = document.querySelector('#despesas').value
+    valorSaldo = parseInt(valorSaldo) - parseInt(valor)
+    getSaldo()
+    document.querySelector('#despesas').value = ""
+  }else if(type === "aumentar") {
+    let valor = document.querySelector('#ganhos').value
+    valorSaldo = parseInt(valorSaldo) + parseInt(valor)
+    getSaldo()
+    document.querySelector('#ganhos').value = ""
+  }
 }
 
 
-function getDespesas(e) {
-    e.preventDefault()
-  let despesas = document.querySelector('#despesas')
-  if(despesas.value == 0 || despesas.value == null) {
-    alert('Campo Vazio, insira um valor')
-  }else{
-    let num2 = array2
-    array2.push(despesas.value)
 
-    const list = document.querySelector('#list')
-    const text = document.createElement("li")
-    text.textContent = `R$ ${despesas.value}`
-    list.appendChild(text)
+// let despesas = document.querySelector('#despesas')
+// let array1 = []
+// let array2 = []
 
-    var valor2 = 0
-    for(var i = 0; i < num2.length;i++){
-        valor2 = parseInt(valor2) + parseInt(num2[i])
-        totalDespesas.innerHTML = `Gastos R$ ${valor2}`
-    }
-  }
-  updateSaldo()
-}
 
-function updateSaldo(numero, num, num2) {
-  numero = ganhos.value
-  numero2 = despesas.value
-  num = array1
-  num2 = array2
-  let valorTotal = 0
+// async function getGanhos(e) {
+// let ganhos = document.querySelector('#ganhos')
+//   e.preventDefault()
+//   if(ganhos.value == 0 || ganhos.value == null) {
+//     alert('Campo Vazio, insira um valor')
+//   }else{
+//       let num = array1
+//       array1.push(ganhos.value)
+
+//     const list = document.querySelector('#list2')
+//     const text2 = document.createElement("li")
+//     text2.textContent = `R$ ${ganhos.value}`
+//     list.appendChild(text2)
+//     totalGanhos.innerHTML = ` Ganhos R$ ${array1.reduce((acc, item) => parseInt(acc) + parseInt(item), 0)}` 
+//   }
+//   // updateSaldo()
+// }
+
+// let arr = [10, 20, 30, 40]
+// const somaGanhos = arr.reduce((acc, item) => acc + item, 0) 
+
+// console.log(somaGanhos)
+
+
+
+
+
+// function getDespesas(e) {
+//     e.preventDefault()
+//   let despesas = document.querySelector('#despesas')
+//   if(despesas.value == 0 || despesas.value == null) {
+//     alert('Campo Vazio, insira um valor')
+//   }else{
+//     let num2 = array2
+//     array2.push(despesas.value)
+
+//     const list = document.querySelector('#list')
+//     const text = document.createElement("li")
+//     text.textContent = `R$ ${despesas.value}`
+//     list.appendChild(text)
+
+//     var valor2 = 0
+//     for(var i = 0; i < num2.length;i++){
+//         valor2 = parseInt(valor2) + parseInt(num2[i])
+//         totalDespesas.innerHTML = `Gastos R$ ${valor2}`
+//     }
+//   }
+//   updateSaldo()
+// }
+
+// function updateSaldo(numero, numero2, num, num2) {
+//   numero = ganhos.value
+//   numero2 = despesas.value
+//   num = array1
+//   num2 = array2
+//   let valorTotal = 0
 
   
-  if(numero) {
-    for(var i = 0; i < num.length;i++) {
-      valorTotal = parseInt(valorTotal) + parseInt(num[i])
-      console.log(valorTotal)
-      saldoTotal.innerHTML = `Gastos R$ ${valorTotal}`
-      }
-    }else if(numero2) {
-        for(var i = 0; i < num.length;i++) {
-        valorTotal = parseInt(valorTotal) - parseInt(num[i])
-        console.log(valorTotal)
-        saldoTotal.innerHTML = `Gastos R$ ${valorTotal}`
-      }
-    }
-  }
+//   if(numero) {
+//     for(var i = 0; i < num.length;i++) {
+//       teste = parseInt(valorTotal) + parseInt(num[i])
+//       console.log(teste)
+//       saldoTotal.innerHTML = `Valor total R$ ${teste}`
+//       }
+//     }else if(numero2) {
+//         for(var i = 0; i < num2.length;i++) {
+//         teste = valorTotal - num2[i]
+//         console.log(teste)
+//         saldoTotal.innerHTML = `Valor total R$ ${teste}`
+//       }
+//     }else{
+//       saldoTotal.innerHTML = "ERROR"
+//     }
+//   }
+
+
+
+
+// -------------------------------------------------------------------
+
 //   num = array1
 //   num2 = array2
 //   numero = ganhos.value
@@ -134,8 +180,8 @@ function updateSaldo(numero, num, num2) {
 // }
 
 // document.querySelector('#add').addEventListener('click', somaValores)
-document.querySelector('#bt_ganhos').addEventListener('click', getGanhos)
-document.querySelector('#bt_despesas').addEventListener('click', getDespesas)
+// document.querySelector('#bt_ganhos').addEventListener('click', getGanhos)
+// document.querySelector('#bt_despesas').addEventListener('click', updateSaldo)
 
 
 
