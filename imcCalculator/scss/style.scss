@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+$bg-gradient: linear-gradient(to right, #3BAA51, rgb(88, 199, 110)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+$bg-gradient-reverse: linear-gradient(to left, #3BAA51, rgb(88, 199, 110));
+$bg-default: #B3FFAB;
+$bg-white: rgba(255, 255, 255, 0.8);
+$bg-input: #F6F7F6;
+$bg-button: #3BAA51;
+$color-text-default: #3C4C30;
+
+*,html,body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: $bg-white;
+    color: $color-text-default;
+    font-family: 'Nunito', sans-serif;
+}
+
+input,
+textarea,
+button{
+    font-family: 'Nunito', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h1{
+        margin-bottom: 50px;
+        color: $color-text-default;
+        font-weight: 900;
+
+    }
+    
+    .content{
+        max-width: 1140px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        form{
+            label{
+                color: #686868;
+            }
+            input[type="text"]{
+                width: 100%;
+                border:none;
+                padding: 15px 20px;
+                background: $bg-input;
+                border-radius: 0.4rem;
+                outline: none;
+                margin: 0.4rem 0;
+                font-size: 1.2rem;
+                transition: 500ms;
+                
+                &:focus{
+                    box-shadow: 0 0 4px rgb(172, 172, 172);
+                    
+                    &::placeholder{
+                        font-size: 0.8rem;
+                        color: rgb(155, 155, 155);
+                        transform: translateY(-10px);
+                    }
+                }
+            }
+        }
+        input[type="submit"]{
+            width: 100%;
+            border:none;
+            background: $bg-gradient;
+            padding: 15px 20px;
+            border-radius: 0.4rem;
+            outline: none;
+            margin: 0.4rem 0;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: white;
+            transition: 500ms ease-in-out;
+            &:hover{
+                background: $bg-gradient-reverse;
+            }
+        }
+
+        .box{
+            
+            img{
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+            }
+            .result {
+                background: #3BAA51;
+                color: white;
+                padding: 20px;
+                border-radius: 0.4rem;
+            }
+        }
+    }
+
+    
+}
+
+
+
