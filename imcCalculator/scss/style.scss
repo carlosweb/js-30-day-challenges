@@ -32,6 +32,7 @@ button{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 0 6rem;
 
     h1{
         margin-bottom: 50px;
@@ -41,10 +42,16 @@ button{
     }
     
     .content{
-        max-width: 1140px;
+        // min-width: 1140px;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
+
+        .box-form,.box{
+            box-shadow: 0px 0px 4px #ddd;
+            padding: 20px;
+            border-radius: 0.8rem;
+        }
 
         form{
             label{
@@ -70,8 +77,15 @@ button{
                         transform: translateY(-10px);
                     }
                 }
+                
             }
+            
         }
+
+        .border-warning{
+            border: 1px solid rgb(173, 0, 0)!important;
+        }
+
         input[type="submit"]{
             width: 100%;
             border:none;
@@ -90,6 +104,7 @@ button{
         }
 
         .box{
+            transition: 500ms ease-in-out;
             
             img{
                 width: 100%;
@@ -101,11 +116,13 @@ button{
                 color: white;
                 padding: 20px;
                 border-radius: 0.4rem;
+                h3{
+                    margin-bottom: 0.8rem;
+                    font-size: 2rem;
+                }
             }
         }
     }
-
-    
 }
 
 
